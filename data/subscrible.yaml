@@ -1,0 +1,232 @@
+{
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "timestamp": true
+  },
+  "inbounds": [
+    {
+      "sniff": true,
+      "type": "mixed",
+      "listen": "127.0.0.1",
+      "listen_port": 1081,
+      "set_system_proxy": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "select",
+      "type": "selector",
+      "outbounds": [
+        "auto",
+        "HKT-NAT|RID6.love@xray.com",
+        "Hosthatch|xN1j.love@xray.com",
+        "圣何塞直连",
+        "越南",
+        "阿里HK",
+        "FK直连"
+      ]
+    },
+    {
+      "tag": "auto",
+      "type": "urltest",
+      "outbounds": [
+        "HKT-NAT|RID6.love@xray.com",
+        "Hosthatch|xN1j.love@xray.com",
+        "圣何塞直连",
+        "越南",
+        "阿里HK",
+        "FK直连"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "1m",
+      "tolerance": 50
+    },
+    {
+      "tag": "direct",
+      "type": "direct"
+    },
+    {
+      "tag": "block",
+      "type": "block"
+    },
+    {
+      "server": "116.48.179.131",
+      "server_port": 30032,
+      "tls": {
+        "enabled": true,
+        "server_name": "www.cloudflare.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "rwpbqas_HY8knlW0fFSIeUrjgBXHBzSNboflsLD8elA"
+        }
+      },
+      "uuid": "0b4c851e-e09f-44ee-c8e5-7215722bb3b3",
+      "flow": "xtls-rprx-vision",
+      "tag": "HKT-NAT|RID6.love@xray.com",
+      "type": "vless"
+    },
+    {
+      "server": "170.205.39.190",
+      "server_port": 56761,
+      "tls": {
+        "enabled": true,
+        "server_name": "swdist.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "4comh-7Jm_wZXJQ5QiLSCbVGQIbMUzHUIBdb0aFtLzM"
+        }
+      },
+      "uuid": "2b3097a1-b9b2-4949-83a2-4b9921b6d7b0",
+      "flow": "xtls-rprx-vision",
+      "tag": "Hosthatch|xN1j.love@xray.com",
+      "type": "vless"
+    },
+    {
+      "server": "us.zhdtz.top",
+      "server_port": 23242,
+      "tls": {
+        "enabled": true,
+        "server_name": "blog.api.www.cloudflare.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "g-oxbqigzCaXqARxuyD2_vbTYeMD9zn8wnTo02S69QM"
+        }
+      },
+      "uuid": "4d03cf64-c213-483b-bee9-6ba8195f99d3",
+      "flow": "xtls-rprx-vision",
+      "tag": "圣何塞直连",
+      "type": "vless"
+    },
+    {
+      "server": "vn.zhdtz.top",
+      "server_port": 42803,
+      "tls": {
+        "enabled": true,
+        "server_name": "www.speedtest.net",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "S-g0oP36DShii1uPOnZDSEhp_wQghX6h68PgMivOmD4"
+        }
+      },
+      "uuid": "a403e73d-b385-46d5-c9fe-546e5df7e9ff",
+      "flow": "xtls-rprx-vision",
+      "tag": "越南",
+      "type": "vless"
+    },
+    {
+      "server": "8.217.155.56",
+      "server_port": 24596,
+      "tls": {
+        "enabled": true,
+        "server_name": "blog.api.www.cloudflare.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "W9BjX6YmCIVsjhKMlz233Yoe0xcf0SVHfvPKqbf3vCg"
+        }
+      },
+      "uuid": "a68e8a28-0560-4b70-a8dc-45418ce4ae96",
+      "flow": "xtls-rprx-vision",
+      "tag": "阿里HK",
+      "type": "vless"
+    },
+    {
+      "server": "fk.zhdtz.top",
+      "server_port": 26828,
+      "tls": {
+        "enabled": true,
+        "server_name": "www.speedtest.org",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "R2gKMF0Tetlnesc1pPkZH9NaOeehw-f5_U9JKG_cLjU"
+        }
+      },
+      "uuid": "36385052-c880-40b7-946d-1ffb90bf915e",
+      "flow": "xtls-rprx-vision",
+      "tag": "FK直连",
+      "type": "vless"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "rule_set": "geosite-category-ads-all",
+        "outbound": "block"
+      },
+      {
+        "rule_set": "geoip-cn",
+        "outbound": "direct"
+      },
+      {
+        "rule_set": "geosite-cn",
+        "outbound": "direct"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
+      }
+    ],
+    "rule_set": [
+      {
+        "tag": "geosite-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
+        "download_detour": "select"
+      },
+      {
+        "tag": "geoip-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+        "download_detour": "select"
+      },
+      {
+        "tag": "geosite-category-ads-all",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+        "download_detour": "select"
+      }
+    ],
+    "auto_detect_interface": false
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "cache.db",
+      "store_fakeip": true
+    }
+  },
+  "ntp": {
+    "enabled": true,
+    "server": "time.apple.com",
+    "server_port": 123,
+    "interval": "30m",
+    "detour": "direct"
+  }
+}
