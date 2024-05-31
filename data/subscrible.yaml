@@ -19,11 +19,7 @@
       "type": "selector",
       "outbounds": [
         "auto",
-        "HKT-NAT|RID6.love@xray.com",
-        "Hosthatch|xN1j.love@xray.com",
         "圣何塞直连",
-        "越南",
-        "阿里HK",
         "FK直连"
       ]
     },
@@ -31,11 +27,7 @@
       "tag": "auto",
       "type": "urltest",
       "outbounds": [
-        "HKT-NAT|RID6.love@xray.com",
-        "Hosthatch|xN1j.love@xray.com",
         "圣何塞直连",
-        "越南",
-        "阿里HK",
         "FK直连"
       ],
       "url": "https://www.gstatic.com/generate_204",
@@ -49,46 +41,6 @@
     {
       "tag": "block",
       "type": "block"
-    },
-    {
-      "server": "116.48.179.131",
-      "server_port": 30032,
-      "tls": {
-        "enabled": true,
-        "server_name": "www.cloudflare.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "rwpbqas_HY8knlW0fFSIeUrjgBXHBzSNboflsLD8elA"
-        }
-      },
-      "uuid": "0b4c851e-e09f-44ee-c8e5-7215722bb3b3",
-      "flow": "xtls-rprx-vision",
-      "tag": "HKT-NAT|RID6.love@xray.com",
-      "type": "vless"
-    },
-    {
-      "server": "170.205.39.190",
-      "server_port": 56761,
-      "tls": {
-        "enabled": true,
-        "server_name": "swdist.apple.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "4comh-7Jm_wZXJQ5QiLSCbVGQIbMUzHUIBdb0aFtLzM"
-        }
-      },
-      "uuid": "2b3097a1-b9b2-4949-83a2-4b9921b6d7b0",
-      "flow": "xtls-rprx-vision",
-      "tag": "Hosthatch|xN1j.love@xray.com",
-      "type": "vless"
     },
     {
       "server": "us.zhdtz.top",
@@ -108,46 +60,6 @@
       "uuid": "4d03cf64-c213-483b-bee9-6ba8195f99d3",
       "flow": "xtls-rprx-vision",
       "tag": "圣何塞直连",
-      "type": "vless"
-    },
-    {
-      "server": "vn.zhdtz.top",
-      "server_port": 42803,
-      "tls": {
-        "enabled": true,
-        "server_name": "www.speedtest.net",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "S-g0oP36DShii1uPOnZDSEhp_wQghX6h68PgMivOmD4"
-        }
-      },
-      "uuid": "a403e73d-b385-46d5-c9fe-546e5df7e9ff",
-      "flow": "xtls-rprx-vision",
-      "tag": "越南",
-      "type": "vless"
-    },
-    {
-      "server": "8.217.155.56",
-      "server_port": 24596,
-      "tls": {
-        "enabled": true,
-        "server_name": "blog.api.www.cloudflare.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "W9BjX6YmCIVsjhKMlz233Yoe0xcf0SVHfvPKqbf3vCg"
-        }
-      },
-      "uuid": "a68e8a28-0560-4b70-a8dc-45418ce4ae96",
-      "flow": "xtls-rprx-vision",
-      "tag": "阿里HK",
       "type": "vless"
     },
     {
